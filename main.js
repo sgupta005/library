@@ -5,19 +5,18 @@ function Book(title,author,pages,read){
     this.author = author;
     this.pages = pages;
     this.read = read;
-
 }
-
 
 const addBookButton = document.getElementById('add-book-button');
 const bookForm = document.getElementById('book-form');
+const addBookForm = document.getElementById('add-book-form');
+const bookGridContainer = document.getElementById('book-grid-container');
 
 addBookButton.addEventListener('click', ()=>{
     addBookButton.disabled = true;
     bookForm.style.display = 'flex';
 })
 
-const addBookForm = document.getElementById('add-book-form');
 addBookForm.addEventListener('submit', (e)=>{
     e.preventDefault();
 
@@ -28,12 +27,26 @@ addBookForm.addEventListener('submit', (e)=>{
 
     const book = new Book(title,author,pages,read);
     myLibrary.push(book);
+    bookCard = createBookCard(book);
+    bookGridContainer.appendChild(bookCard);
     console.log(myLibrary);
     addBookForm.reset();
     bookForm.style.display = 'none';
     addBookButton.disabled = false;
 })
 
+function createBookCard(book){
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+    const title = document.createElement('p');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = book.pages;
+    bookCard.append(title,author,pages);
+    return bookCard;
+}
 
 document.addEventListener('click', hideBox);
 function hideBox(event){
