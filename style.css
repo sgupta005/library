@@ -1,0 +1,26 @@
+#main{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+#book-form{
+    flex-direction: column;
+    align-items: center;
+}
+#add-book-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+#book-read-label{
+    display: flex;
+    
+}
+.book-grid-container{
+    color: blue;
+}
+.book-card{
+    columns: blue;
+}
