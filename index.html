@@ -8,23 +8,29 @@
 </head>
 <body>
     <div id="header">
-        <h1>My Library</h1>
+        <h1>Library</h1>
     </div>
     <div id="main">
-        <button id="add-book-button">Add Book</button>
-        <div id="book-form" style="display: none;">
-            <h2>Add a Book</h2>
-            <form id="add-book-form">
-                <input type="text" id="book-title" placeholder="Title" required>
-                <input type="text" id="book-author" placeholder="Author" required>
-                <input type="number" id="book-pages" placeholder="Pages" requried>
-                <label id="book-read-label" required>
-                    <p>Have you read it?</p>
-                    <input type="checkbox" id="book-read">
-                </label>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        <button id="show-form-button">+ Add Book</button>
+        <dialog id="book-form-dialog">
+            <div id="book-form-container">
+                <h2>Add a New Book</h2>
+                <form id="add-book-form" method="dialog">
+                    <input type="text" id="book-title" placeholder="Title" required autofocus>
+                    <input type="text" id="book-author" placeholder="Author" required>
+                    <input type="number" id="book-pages" placeholder="Pages" requried>
+                    <label id="book-read-label" for="book-read" required>
+                        <p>Have you read it?</p>
+                        <input type="checkbox" id="book-read">
+                    </label>
+                    <div id="form-button-container">
+                        <button id="form-cancel-button" formmethod="dialog">Cancel</button>
+                        <button id="form-submit-button" >Submit</button>
+                    </div>
+    
+                </form>
+            </div>
+        </dialog>
         <div id="book-grid-container" >
         </div>
     </div>
