@@ -1,4 +1,7 @@
-
+body{
+    margin: 0px;
+    background-color: rgb(227, 230, 235);
+}
 p{
     padding: 0px;
     margin: 0px;
@@ -8,16 +11,19 @@ h1, h2{
 }
 
 #header{
+    margin: 0px;
+    background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
     justify-content: center;
 }
 #show-form-button{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;;
     border: none;
     border-radius: 5px;
-    background-color: rgb(226, 226, 226);
+    background-color:rgb(231, 231, 231);;
     margin-top: 40px;
     height: 50px;
     width: 150px;
@@ -90,16 +96,23 @@ h1, h2{
 #form-cancel-button{
     background-color: rgb(183, 39, 39);
 }
-/* #book-grid-container{
-    column-gap: 10px;
+#book-grid-container{
+    justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
-    
-} */
-/* .book-card{
-    margin-top: 20px;
+} 
+.book-card{
+    line-height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28px ;
+    border-radius: 8px ;
+    background-color: rgb(231, 231, 231);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;;
+    margin-top: 40px;
     padding: 10px 10px;
-    border: 2px solid rgb(66, 66, 66);
-    width: 200px;
-    flex: 1;
-}  */
+    width: 300px;
+    min-width: 300px;
+    height: 200px;
+} 
