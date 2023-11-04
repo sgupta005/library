@@ -2,12 +2,12 @@ let myLibrary = [{
     title: 'The Vinci Code', 
     author: 'Robert Langdon', 
     pages: 400,
-    read: true,
-    },
-    {title: 'The Vinci Code', 
+    read: true,},
+    {
+    title: 'The Vinci Code', 
     author: 'Robert Langdon', 
-    pages: 400},
-];
+    pages: 400
+},];
 
 function Book(title,author,pages,read){
     this.title = title;
@@ -41,12 +41,13 @@ bookForm.addEventListener('submit', (event)=>{
     const author = document.getElementById('book-author').value;
     const pages = parseInt(document.getElementById('book-pages').value);
     const read = document.getElementById('book-read').checked;
+    
     const book = new Book(title,author,pages,read);
     myLibrary.push(book);
 
     bookCard = createBookCard(book);
     bookGridContainer.appendChild(bookCard);
-    console.log(myLibrary);
+
     bookForm.reset();
     bookFormDialog.close();
 })
@@ -59,15 +60,19 @@ for (let book of myLibrary){
 
 function createBookCard(book){
     const bookCard = document.createElement('div');
-    bookCard.classList.add('book-card');
     const title = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
+
+    bookCard.classList.add('book-card');
+
     title.textContent = `"${book.title}"`;
     author.textContent = `By: ${book.author}`;
     pages.textContent = book.pages;
+
     readButton = createReadButton(book);
     removeButton = createRemoveButton(book);
+    
     bookCard.append(title,author,pages,readButton, removeButton);
     return bookCard;
 }
