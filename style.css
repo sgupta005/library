@@ -114,17 +114,24 @@ h1, h2{
     margin-top: 40px;
     padding: 10px 10px;
     min-width: 300px;
-    height: 200px;
+    height: 270px;
 } 
-.read-button{
-    background-color: lightcoral;
+.read-button, .remove-button{
     font-size: 24px;
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
     border-radius: 5px;
     height: 45px;
-    width: 300px;
+    width: 280px;
+}
+.read-button{
+    background-color: lightcoral;
 }
 .read-button.on{
     background-color: lightgreen;
+}
+.remove-button{
+    margin-bottom: 10px ;
+    margin-top: 20px;
+    background-color: rgb(200, 204, 210);;
 }

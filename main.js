@@ -1,12 +1,14 @@
-const myLibrary = [{
+let myLibrary = [{
     title: 'The Vinci Code', 
     author: 'Robert Langdon', 
-    pages: 400}, 
-    {
-        title: 'The Vinci Code', 
-        author: 'Robert Langdon', 
-        pages: 400},
+    pages: 400,
+    read: true,
+    },
+    {title: 'The Vinci Code', 
+    author: 'Robert Langdon', 
+    pages: 400},
 ];
+
 function Book(title,author,pages,read){
     this.title = title;
     this.author = author;
@@ -53,8 +55,8 @@ bookForm.addEventListener('submit', (event)=>{
 for (let book of myLibrary){
     bookCard = createBookCard(book);
     bookGridContainer.appendChild(bookCard);
-    
 }
+
 function createBookCard(book){
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
@@ -65,23 +67,28 @@ function createBookCard(book){
     author.textContent = `By: ${book.author}`;
     pages.textContent = book.pages;
     readButton = createReadButton(book);
-    bookCard.append(title,author,pages,readButton);
+    removeButton = createRemoveButton(book);
+    bookCard.append(title,author,pages,readButton, removeButton);
     return bookCard;
 }
 
 function handleBookAction(event, book, action){
     if (action === 'read'){
-        if (book.read === 'on'){
-            book.read = 'off';
+        if (book.read){
+            book.read = false;
             event.target.textContent = 'Not Read';
             event.target.classList.remove('on');
             console.log(event);
         }else{
-            book.read = 'on';
+            book.read = true;
             event.target.textContent = 'Read';
             event.target.classList.add('on');
             console.log(event);
         }
+    }else if(action === 'remove'){
+        bookGridContainer.removeChild(bookCard);
+        myLibrary = myLibrary.filter((item)=> item!==book);
+        console.log(myLibrary);
     }
 }
 
@@ -98,3 +105,10 @@ function createReadButton(book){
     return readButton;
 }
 
+function createRemoveButton(book){
+    removeButton = document.createElement('button');
+    removeButton.classList.add('remove-button');
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', (event)=>handleBookAction(event,book,'remove'));
+    return removeButton
+}
