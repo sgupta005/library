@@ -42,6 +42,7 @@ bookForm.addEventListener('submit', (event)=>{
 
     const book = new Book(title,author,pages,read);
     myLibrary.push(book);
+
     bookCard = createBookCard(book);
     bookGridContainer.appendChild(bookCard);
     console.log(myLibrary);
@@ -53,7 +54,7 @@ bookForm.addEventListener('submit', (event)=>{
 for (let book of myLibrary){
     bookCard = createBookCard(book);
     bookGridContainer.appendChild(bookCard);
-
+    
 }
 function createBookCard(book){
     const bookCard = document.createElement('div');
@@ -64,68 +65,19 @@ function createBookCard(book){
     title.textContent = `"${book.title}"`;
     author.textContent = `By: ${book.author}`;
     pages.textContent = book.pages;
-    bookCard.append(title,author,pages);
+    readButton = createReadButton(book);
+    bookCard.append(title,author,pages,readButton);
     return bookCard;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const addBookButton = document.getElementById('add-book-button');
-// const bookForm = document.getElementById('book-form');
-// const addBookForm = document.getElementById('add-book-form');
-// const bookGridContainer = document.getElementById('book-grid-container');
-
-// addBookButton.addEventListener('click', ()=>{
-//     addBookButton.disabled = true;
-//     bookForm.style.display = 'flex';
-// })
-
-// addBookForm.addEventListener('submit', (e)=>{
-//     e.preventDefault();
-
-//     const title = document.getElementById('book-title').value;
-//     const author = document.getElementById('book-author').value;
-//     const pages = parseInt(document.getElementById('book-pages').value);
-//     const read = document.getElementById('book-read').value;
-
-//     const book = new Book(title,author,pages,read);
-//     myLibrary.push(book);
-//     bookCard = createBookCard(book);
-//     bookGridContainer.appendChild(bookCard);
-//     console.log(myLibrary);
-//     addBookForm.reset();
-//     bookForm.style.display = 'none';
-//     addBookButton.disabled = false;
-// })
-
-
-// 
+function createReadButton(book){
+    readButton = document.createElement('button');
+    readButton.classList.add('read-button');
+    if (book.read == 'on'){
+        readButton.textContent = 'Read';
+        readButton.classList.add('on');
+    }else{
+        readButton.textContent = 'Not Read';
+    }
+    return readButton;
+}
 
