@@ -38,8 +38,7 @@ bookForm.addEventListener('submit', (event)=>{
     const title = document.getElementById('book-title').value;
     const author = document.getElementById('book-author').value;
     const pages = parseInt(document.getElementById('book-pages').value);
-    const read = document.getElementById('book-read').value;
-
+    const read = document.getElementById('book-read').checked;
     const book = new Book(title,author,pages,read);
     myLibrary.push(book);
 
@@ -72,7 +71,7 @@ function createBookCard(book){
 function createReadButton(book){
     readButton = document.createElement('button');
     readButton.classList.add('read-button');
-    if (book.read == 'on'){
+    if (book.read){
         readButton.textContent = 'Read';
         readButton.classList.add('on');
     }else{
