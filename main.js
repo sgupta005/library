@@ -68,6 +68,23 @@ function createBookCard(book){
     bookCard.append(title,author,pages,readButton);
     return bookCard;
 }
+
+function handleBookAction(event, book, action){
+    if (action === 'read'){
+        if (book.read === 'on'){
+            book.read = 'off';
+            event.target.textContent = 'Not Read';
+            event.target.classList.remove('on');
+            console.log(event);
+        }else{
+            book.read = 'on';
+            event.target.textContent = 'Read';
+            event.target.classList.add('on');
+            console.log(event);
+        }
+    }
+}
+
 function createReadButton(book){
     readButton = document.createElement('button');
     readButton.classList.add('read-button');
@@ -77,6 +94,7 @@ function createReadButton(book){
     }else{
         readButton.textContent = 'Not Read';
     }
+    readButton.addEventListener('click', (event)=>handleBookAction(event,book,'read'));
     return readButton;
 }
 
